@@ -1,0 +1,26 @@
+<!DOCTYPE hmtl>
+<html>
+    <head>
+        <title>Todo List</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <p>Todo List</p>
+        <div class="todo-input-grid">
+            <input class="js-todo-input name-input" type="text" placeholder="Enter Todo" 
+            onkeydown="
+                enterEvent(event);
+            ">
+            <input class="js-date-input due-date-input" type="date">
+            <input class="js-time-input time-input" type="time">
+    
+            <button class="enter-button" onclick="
+                enterTodo();
+            "
+            >Enter</button>
+        </div>
+        <div class="js-todo-list todo-grid"></div>
+
+        <script src="script.js"></script>
+    </body>
+</html>

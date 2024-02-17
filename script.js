@@ -1,22 +1,11 @@
-let todolist = [
-    {
-        name: 'Watch Youtube',
-        dueDate: '2024-05-09',
-        time: '12:09'
-    },
-    {
-        name: 'Drink Coca Cola',
-        dueDate: '2025-09-08',
-        time: '12:20'
-    }    
-    ];
+let todolist = [];
 
 renderTodo();
 
 function renderTodo(){
     let Rendertodo = '';
 
-    todolist.forEach( function(todoObject, index){
+    todolist.forEach(function(todoObject, index){
         let {name, dueDate, time} = todoObject;
 
         Rendertodo += `
@@ -24,10 +13,8 @@ function renderTodo(){
         <div>${dueDate}</div>
         <div>${time}</div>
         
-        <button class="delete-button" onclick="
-            todolist.splice(${index}, 1);
-            renderTodo();
-        ">Delete</button>
+        <button class="delete-button js-delete-button" 
+        >Delete</button>
         `;
         
     });
@@ -52,13 +39,27 @@ function renderTodo(){
     
     document.querySelector('.js-todo-list')
         .innerHTML = Rendertodo;
-}
 
+    document.querySelectorAll('.js-delete-button')
+        .forEach((deleteButton,index) =>{
+            deleteButton.addEventListener('click',() => {
+                todolist.splice(index, 1);
+                    renderTodo();
+            });
+        });
+    
+}
 function enterEvent(event){
     if(event.key === 'Enter'){
         enterTodo();
     }
 }
+
+
+
+
+document.querySelector('.js-add-button')
+    .addEventListener('click', () => {enterTodo();})
 
 function enterTodo(){
     let inputElement = document.querySelector('.js-todo-input');

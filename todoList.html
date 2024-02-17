@@ -7,17 +7,17 @@
     <body>
         <p>Todo List</p>
         <div class="todo-input-grid">
-            <input class="js-todo-input name-input" type="text" placeholder="Enter Todo" 
+            <input class="js-todo-input name-input"
             onkeydown="
-                enterEvent(event);
-            ">
+            enterEvent(event);
+            " type="text" placeholder="Enter Todo" 
+            
+            >
             <input class="js-date-input due-date-input" type="date">
             <input class="js-time-input time-input" type="time">
     
-            <button class="enter-button" onclick="
-                enterTodo();
-            "
-            >Enter</button>
+            <button class="enter-button js-add-button"
+            >Add</button>
         </div>
         <div class="js-todo-list todo-grid"></div>
 
